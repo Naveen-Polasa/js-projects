@@ -32,7 +32,7 @@ let tempMonth = tempDate.getMonth();
 let tempDay = tempDate.getDate();
 
 // let futureDate = new Date(2022, 12, 1, 12, 00, 00);
-const futureDate = new Date(tempYear,tempMonth, tempDay + 99, 12,00,0)
+const futureDate = new Date(tempYear,tempMonth, tempDay + 10, 12,30)
 const year = futureDate.getFullYear();
 const hours = futureDate.getHours();
 const minutes = futureDate.getMinutes();
@@ -54,13 +54,12 @@ function getRemainingTime() {
   const t = futureTime - today;
 
   // values in ms
-  const oneDay = 24 * 60 * 60 * 1000;
-  const oneHour = 60 * 60 * 1000;
   const oneMinute = 60 * 1000;
+  const oneHour = 60 * oneMinute;
+  const oneDay = 24 * oneHour;
 
   // calculate all values
-  let days = t / oneDay;
-  days = Math.floor(days);
+  let days = Math.floor(t / oneDay);
   let hours = Math.floor((t % oneDay) / oneHour);
   let minutes = Math.floor((t % oneHour) / oneMinute);
   let seconds = Math.floor((t % oneMinute) / 1000);
